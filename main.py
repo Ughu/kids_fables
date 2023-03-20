@@ -12,15 +12,20 @@ print('Wait, your story is being created... \n')
 
 story = openai.ChatCompletion.create(
     model='gpt-3.5-turbo',
-    messages =[{'role': 'system', 'content': 'You tell stories for children. The stories you tell must have a message.'},
-               {'role': 'system', 'content': 'Remember: this stories are for children so they must have fantasy, adventure and they must teach about aspects of life'},
-               {'role': 'user', 'content': prompt}])
+    messages=[{'role': 'system', 'content': 'You tell stories for children.\
+                The stories you tell must have a message.'},
+              {'role': 'system', 'content': 'Remember: this stories are for \
+                children so they must have fantasy, adventure and they must \
+                teach about aspects of life'},
+              {'role': 'user', 'content': prompt}])
 
 title = openai.ChatCompletion.create(
     model='gpt-3.5-turbo',
-    messages =[{'role': 'system', 'content': 'Create a title for a childs book from a story'},
-               {'role': 'system', 'content': 'Remember: this title must be short and visual'},
-               {'role': 'user', 'content': prompt+"\n"+story.choices[0].message.content}])
+    messages=[{'role': 'system', 'content': 'Create a title \
+                for a childs book from a story'},
+              {'role': 'system', 'content': 'Remember: \
+                this title must be short and visual'},
+              {'role': 'user', 'content': prompt+"\n"+story.choices[0].message.content}])
 
 
 for c in title.choices[0].message.content:
