@@ -38,13 +38,14 @@ for c in story.choices[0].message.content:
     time.sleep(0.05)
 
 background = openai.Image.create(
-  prompt=f'Make a cover for a kids book with the title: {title.choices[0].message.content}',
+  prompt=f'Paint an image with: {title.choices[0].message.content} \
+    like a kids book illustratrion',
   n=1,
   size="512x512"
 )
 image_url = background['data'][0]['url']
 
-print(f'This is the image we made for your tale:\n \
+print(f'\nThis is the image we made for your tale:\n \
       {image_url}\nClick the link to see this amazing cover for your book.')
 
 # cost = f'That wonderfull tale just costed you: '+str(int(story.usage.total_tokens)*0.002/1000)+' US dollars'
