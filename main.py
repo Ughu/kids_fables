@@ -27,6 +27,13 @@ title = openai.ChatCompletion.create(
                 this title must be short and visual'},
               {'role': 'user', 'content': prompt+"\n"+story.choices[0].message.content}])
 
+image_prompt = openai.ChatCompletion.create(
+    model='gpt-3.5-turbo',
+    messages=[{'role': 'system', 'content':'You are a illustrator using Dall-e for inspirational purposes.'},
+              {'role': 'user', 'content':  f'Create a DALL-E prompt with this story title: {title.choices[0].message.content}'}]
+
+)
+
 
 for c in title.choices[0].message.content:
     sys.stdout.write(c)
@@ -43,8 +50,7 @@ for c in story.choices[0].message.content:
     time.sleep(0.05)
 
 background = openai.Image.create(
-  prompt=f'Paint an image with: {title.choices[0].message.content} \
-    like a kids book illustratrion',
+  prompt=image_prompt.choices[0].message.content,
   n=1,
   size="512x512"
 )
