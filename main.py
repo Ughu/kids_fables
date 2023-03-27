@@ -45,7 +45,7 @@ for c in story.choices[0].message.content:
     time.sleep(0.05)
 
 background = openai.Image.create(
-  prompt=f"{image_prompt['choices'][0]['message']['content']}; as an illustration made by Maurice Sendak",
+  prompt=f"{image_prompt['choices'][0]['message']['content']}; as a digital collorful illustration",
   n=1,
   size="512x512"
 )
