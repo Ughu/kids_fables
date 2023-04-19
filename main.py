@@ -45,24 +45,24 @@ image_prompt = openai.ChatCompletion.create(
 
 
 
-print(title.choices[0].message.content)
-# for c in title.choices[0].message.content:
-#     sys.stdout.write(c)
-#     sys.stdout.flush()
-#     time.sleep(0.05)
+# print(title.choices[0].message.content)
+for c in title.choices[0].message.content:
+    sys.stdout.write(c)
+    sys.stdout.flush()
+    time.sleep(0.05)
 
 print("\n")
 print("="*75)
 print("\n")
 
-print(story.choices[0].message.content)
-# for c in story.choices[0].message.content:
-#     sys.stdout.write(c)
-#     sys.stdout.flush()
-#     time.sleep(0.05)
+#print(story.choices[0].message.content)
+for c in story.choices[0].message.content:
+    sys.stdout.write(c)
+    sys.stdout.flush()
+    time.sleep(0.05)
 
 background = openai.Image.create(
-  prompt=f"{image_prompt['choices'][0]['message']['content']} paint it as a Mitsumasa Anno illustration.",
+  prompt=f"{image_prompt['choices'][0]['message']['content']}",
   n=1,
   size="512x512"
 )
