@@ -1,10 +1,13 @@
 import openai
 import os
+from dotenv import load_dotenv
 import time
 import sys
 
+load_dotenv()
 
-openai.api_key_path = ".env"
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
 
 prompt = input("I tell stories.\nSo, please ask me for a story about anything: ")
 
