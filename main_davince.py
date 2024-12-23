@@ -1,10 +1,12 @@
 import openai
 import os
+from dotenv import load_dotenv
 import time
 import sys
 
+load_dotenv()
 
-openai.api_key_path = ".env"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 prompt = input("Choose words at random and I'll do my best to tell you a tale: ")
 
